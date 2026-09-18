@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "{index.html,styles.css,app.js}"
-    }
-  },
+  "framework": null,
+  "buildCommand": "node build-static.js",
+  "outputDirectory": "public",
   "rewrites": [
     {
       "source": "/api/:path*",

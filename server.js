@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 
 const app = express();
@@ -12,10 +13,15 @@ const GEMINI_MODEL =
 
 app.use(express.json({ limit: '1mb' }));
 
+const publicDir = path.join(__dirname, 'public');
+const staticDir = fs.existsSync(path.join(publicDir, 'index.html'))
+  ? publicDir
+  : __dirname;
+
 function sendStatic(file, type) {
   return (req, res) => {
     res.type(type);
-    res.sendFile(path.join(__dirname, file));
+    res.sendFile(path.join(staticDir, file));
   };
 }
 
@@ -1042,7 +1048,7 @@ app.get(/^(?!\/api).*/, (req, res) => {
   }
 
   res.type('html');
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 

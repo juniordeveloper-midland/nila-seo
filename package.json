@@ -5,7 +5,9 @@
   "description": "AIViz dashboard with server-side Gemini analysis",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build-static.js"
   },
   "engines": {
     "node": ">=18"
