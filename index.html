@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIViz — Free AI Visibility Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">A</div><div><b>AIViz</b><small>AI Visibility</small></div></div>
+  <nav>
+    <button class="nav active" data-target="dashboard">◈ <span>Dashboard</span></button>
+    <button class="nav" data-target="prompts">✦ <span>Prompts</span></button>
+    <button class="nav" data-target="competitors">◎ <span>Competitors</span></button>
+    <button class="nav" data-target="opportunities">↗ <span>Opportunities</span></button>
+    <button class="nav" data-target="reports">▤ <span>Reports</span></button>
+  </nav>
+  <div class="sidefoot"><span>FREE MVP</span><small>No API key required</small></div>
+</aside>
+<main>
+<header><button class="hamb" id="hamb">☰</button><div class="crumb">Workspace / <b>AIViz Demo</b></div><div class="demo">DEMO DATA</div></header>
+<section class="wrap">
+  <div class="hero">
+    <div><div class="eyebrow">AI SEARCH VISIBILITY</div><h1>See how your brand appears in AI answers.</h1><p>Track visibility, mentions, competitors and content opportunities — completely free in this MVP.</p></div>
+    <div class="urlbox"><label>Website</label><div class="urlrow"><input id="url" value="https://example.com"><button class="primary" id="analyze">Analyze</button></div></div>
+  </div>
+
+  <section id="dashboard" class="page active">
+    <div class="sectionhead"><div><h2>Overview</h2><p>Sample visibility snapshot for your selected website.</p></div><small id="updated">Updated just now</small></div>
+    <div class="stats">
+      <article class="card"><div class="label">AI Visibility <i>✦</i></div><strong>72%</strong><em class="up">↑ 8.4% <small>vs last scan</small></em><div class="bar"><i style="width:72%"></i></div></article>
+      <article class="card"><div class="label">Brand Mentions <i>◉</i></div><strong>184</strong><em class="up">↑ 21 <small>this period</small></em><div class="bars"><i style="height:35%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:67%"></i><i style="height:61%"></i><i style="height:84%"></i><i style="height:100%"></i></div></article>
+      <article class="card"><div class="label">Prompts Tracked <i>⌁</i></div><strong>25</strong><em>Across 5 topics</em><div class="chips">Brand <b>7</b> Product <b>8</b> Category <b>10</b></div></article>
+      <article class="card"><div class="label">Opportunity Score <i>↗</i></div><strong>81</strong><em>High potential</em><div class="oppmini">12 quick wins <b>→</b></div></article>
+    </div>
+    <div class="two">
+      <article class="panel"><div class="panelhead"><div><h3>Visibility trend</h3><p>AI answer presence over the last 30 days</p></div><select><option>30 days</option><option>90 days</option></select></div>
+        <svg class="chart" viewBox="0 0 700 240" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#765cff" stop-opacity=".3"/><stop offset="1" stop-color="#765cff" stop-opacity="0"/></linearGradient></defs><g class="grid"><line x1="0" y1="205" x2="700" y2="205"/><line x1="0" y1="145" x2="700" y2="145"/><line x1="0" y1="85" x2="700" y2="85"/><line x1="0" y1="25" x2="700" y2="25"/></g><path d="M0 184 C45 177 60 191 92 170 S135 155 170 160 S220 145 250 130 S305 149 335 115 S390 125 420 108 S470 98 500 80 S550 92 580 66 S630 72 700 40 L700 225 L0 225Z" fill="url(#g)"/><path d="M0 184 C45 177 60 191 92 170 S135 155 170 160 S220 145 250 130 S305 149 335 115 S390 125 420 108 S470 98 500 80 S550 92 580 66 S630 72 700 40" fill="none" stroke="#765cff" stroke-width="4" stroke-linecap="round"/></svg><div class="xlabels"><span>Aug 20</span><span>Aug 27</span><span>Sep 3</span><span>Sep 10</span><span>Sep 18</span></div>
+      </article>
+      <article class="panel"><div class="panelhead"><div><h3>AI engines</h3><p>Where your brand is being surfaced</p></div></div><div class="engines">
+        <div><b>G</b><span>Google AI Overviews<small>78% visibility</small></span><strong>78%</strong></div><div><b class="dark">C</b><span>ChatGPT<small>71% visibility</small></span><strong>71%</strong></div><div><b class="blue">P</b><span>Perplexity<small>66% visibility</small></span><strong>66%</strong></div><div><b class="orange">C</b><span>Claude<small>73% visibility</small></span><strong>73%</strong></div>
+      </div></article>
+    </div>
+    <div class="two lower"><article class="panel"><div class="panelhead"><div><h3>Top competitors</h3><p>Share of AI answers for tracked prompts</p></div><button class="link" data-target="competitors">View all →</button></div><div class="table"><div class="tr th"><span>Brand</span><span>Visibility</span><span>Mentions</span></div><div class="tr"><b>Your brand</b><span class="good">72%</span><span>184</span></div><div class="tr"><span>Competitor Alpha</span><span>69%</span><span>171</span></div><div class="tr"><span>Competitor Beta</span><span>61%</span><span>149</span></div><div class="tr"><span>Competitor Gamma</span><span>54%</span><span>126</span></div></div></article>
+      <article class="panel"><div class="panelhead"><div><h3>Quick opportunities</h3><p>Actions generated from demo data</p></div><button class="link" data-target="opportunities">See all →</button></div><div class="opps"><div><i class="red"></i><span><b>Own “best tools for teams”</b><small>8 competitor mentions, 2 of yours</small></span><strong>+14%</strong></div><div><i class="yellow"></i><span><b>Create a comparison page</b><small>High-intent prompt gap detected</small></span><strong>+9%</strong></div><div><i class="yellow"></i><span><b>Refresh pricing content</b><small>AI answers cite outdated sources</small></span><strong>+7%</strong></div></div></article></div>
+  </section>
+
+  <section id="prompts" class="page"><div class="sectionhead"><div><h2>Prompts</h2><p>25 sample queries used to monitor AI visibility.</p></div><button class="primary" id="scan">Run demo scan</button></div><div class="filters"><input id="search" placeholder="Search prompts…"><select id="topic"><option>All topics</option><option>Brand</option><option>Product</option><option>Category</option></select></div><article class="panel"><div id="promptTable" class="table"></div></article></section>
+
+  <section id="competitors" class="page"><div class="sectionhead"><div><h2>Competitors</h2><p>Compare how brands appear across the same prompt set.</p></div></div><div class="competitorGrid"><article class="comp featured"><span>Your brand</span><b>72%</b><small>184 mentions</small><div class="bar"><i style="width:72%"></i></div></article><article class="comp"><span>Competitor Alpha</span><b>69%</b><small>171 mentions</small><div class="bar"><i style="width:69%"></i></div></article><article class="comp"><span>Competitor Beta</span><b>61%</b><small>149 mentions</small><div class="bar"><i style="width:61%"></i></div></article><article class="comp"><span>Competitor Gamma</span><b>54%</b><small>126 mentions</small><div class="bar"><i style="width:54%"></i></div></article></div><article class="panel"><h3>Prompt-level comparison</h3><div class="compare"><div><b>Best project management tools</b><span>You: 92% · Alpha: 88% · Beta: 64%</span></div><div><b>Best tools for remote teams</b><span>You: 48% · Alpha: 81% · Beta: 63%</span></div><div><b>How to improve team productivity</b><span>You: 76% · Alpha: 69% · Beta: 58%</span></div><div><b>Affordable team software</b><span>You: 63% · Alpha: 57% · Beta: 72%</span></div></div></article></section>
+
+  <section id="opportunities" class="page"><div class="sectionhead"><div><h2>Opportunities</h2><p>Demo recommendations based on visibility gaps.</p></div><span class="score">Opportunity score 81</span></div><div class="oppgrid"><article><span class="priority high">HIGH</span><h3>Own “best tools for teams”</h3><p>Competitors appear more frequently than your brand for this intent cluster.</p><div>Estimated impact <b>+14% visibility</b></div><button class="secondary">View prompts</button></article><article><span class="priority">MEDIUM</span><h3>Create a comparison page</h3><p>AI answers frequently cite comparison-style pages for this topic.</p><div>Estimated impact <b>+9% visibility</b></div><button class="secondary">View prompts</button></article><article><span class="priority">MEDIUM</span><h3>Refresh pricing content</h3><p>Some demo answers cite old pricing information.</p><div>Estimated impact <b>+7% visibility</b></div><button class="secondary">View prompts</button></article><article><span class="priority">LOW</span><h3>Expand FAQ coverage</h3><p>Add concise answers to questions appearing repeatedly in AI responses.</p><div>Estimated impact <b>+4% visibility</b></div><button class="secondary">View prompts</button></article></div></section>
+
+  <section id="reports" class="page"><div class="sectionhead"><div><h2>Reports</h2><p>Export a lightweight summary without any paid service.</p></div><button class="primary" id="download">Download report</button></div><article class="panel report"><div class="reporthead"><div class="logo">A</div><div><h2>AIViz Visibility Report</h2><p id="reportUrl">https://example.com</p></div><span>DEMO</span></div><div class="reportscore"><div><small>AI VISIBILITY</small><strong>72%</strong><p>+8.4% vs previous scan</p></div><div class="bars reportbars"><i style="height:45%"></i><i style="height:58%"></i><i style="height:54%"></i><i style="height:70%"></i><i style="height:82%"></i><i style="height:100%"></i></div></div><div class="reporttext"><div><b>Key finding</b><p>Your brand is visible for most core prompts, with the largest gap in comparison and category queries.</p></div><div><b>Next actions</b><p>Publish comparison content, refresh pricing information, and expand FAQ coverage.</p></div></div></article></section>
+</section></main></div><div class="toast" id="toast"></div><script src="app.js"></script></body></html>
