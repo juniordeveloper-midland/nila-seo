@@ -11,7 +11,17 @@ const GEMINI_MODEL =
   process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
 app.use(express.json({ limit: '1mb' }));
-app.use(express.static(__dirname));
+
+function sendStatic(file, type) {
+  return (req, res) => {
+    res.type(type);
+    res.sendFile(path.join(__dirname, file));
+  };
+}
+
+app.get('/styles.css', sendStatic('styles.css', 'css'));
+app.get('/app.js', sendStatic('app.js', 'js'));
+app.get(['/', '/index.html'], sendStatic('index.html', 'html'));
 
 
 /* =========================================================
@@ -1023,22 +1033,17 @@ app.get(
 
 
 /* =========================================================
-   FRONTEND
+   FRONTEND FALLBACK
 ========================================================= */
 
-app.get(
-  /.*/,
-  (req, res) => {
-
-    res.sendFile(
-      path.join(
-        __dirname,
-        'index.html'
-      )
-    );
-
+app.get(/^(?!\/api).*/, (req, res) => {
+  if (path.extname(req.path)) {
+    return res.status(404).end();
   }
-);
+
+  res.type('html');
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 
 /* =========================================================
