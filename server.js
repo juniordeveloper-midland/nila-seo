@@ -1045,28 +1045,32 @@ app.get(
    START SERVER
 ========================================================= */
 
-app.listen(
-  PORT,
-  () => {
+if (require.main === module) {
+  app.listen(
+    PORT,
+    () => {
 
-    console.log('');
-    console.log(
-      '======================================'
-    );
+      console.log('');
+      console.log(
+        '======================================'
+      );
 
-    console.log(
-      `AIViz running at http://localhost:${PORT}`
-    );
+      console.log(
+        `AIViz running at http://localhost:${PORT}`
+      );
 
-    console.log(
-      `Primary Gemini model: ${GEMINI_MODEL}`
-    );
+      console.log(
+        `Primary Gemini model: ${GEMINI_MODEL}`
+      );
 
-    console.log(
-      '======================================'
-    );
+      console.log(
+        '======================================'
+      );
 
-    console.log('');
+      console.log('');
 
-  }
-);
+    }
+  );
+}
+
+module.exports = app;
